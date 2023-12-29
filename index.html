@@ -29,7 +29,10 @@
   }
 </style>
 
+<script src="uloha.js"></script>
+
 <body class="body">
+
   <center>
     <h1>Dogs</h1>
   </center>
@@ -86,7 +89,7 @@
         <p> – According to a recent survey, the most popular name for a dog is Max. Other popular names include Molly,
           Sam, Zach, and Maggie.
           <br />
-        <p> – Dogs can vary in size from a 36 inch (150+ lb.) Great Dane to a 2 lb. Chihuahua.
+        <> – Dogs can vary in size from a 36 inch (150+ lb.) Great Dane to a 2 lb. Chihuahua.
           <br />
         <p> – Puppies and kittens can be adopted as early as 8 weeks of age. Until then, they should stay with their
           moms and littermates.
@@ -101,24 +104,10 @@
           receptors in their noses (we have only 5 million) so it’s important that their food smells good and tastes
           good.
         </p> <br />
-        <button id="myButton">Click me</button>
-        <script>
-        function calculateResistance() {
-            // Získanie hodnoty prúdu zo vstupu
-            var currentInput = document.getElementById("currentInput").value;
+        <input id="inputValue"></input>
+        <button onclick="calculateResistance('inputValue')">Click me</button>
 
-            // Predpokladané hodnoty napätia a prúdu
-            var voltage = 220; // v Voltách
-            var current = currentInput / 1000; // prevod z mA na A
 
-            // Výpočet odporu podľa Ohmovho zákona R = U/I
-            var resistance = voltage / current;
-
-            // Výpis výsledkov na obrazovku
-            var resultElement = document.getElementById("result");
-            resultElement.innerHTML = "R = " + resistance.toFixed(2) + " ohmov, I = " + currentInput + " mA";
-        }
-        </script>
 </body>
 
 </html>
