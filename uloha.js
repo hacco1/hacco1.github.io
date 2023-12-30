@@ -1,8 +1,29 @@
 "use strict";
-function celsiusToFahrenheit(celsius) {
-    return (celsius * 9 / 5) + 32;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.calculateResistance = void 0;
+function calculateResistance(buttonName, resultName) {
+    // Získanie hodnoty prúdu zo vstupu
+    const currentInput = document.getElementById(buttonName);
+    const resultParagraph = document.getElementById(resultName);
+    console.log("Value is: ", currentInput.value);
+    console.log("Numbered value is: ", Number(currentInput.value));
+    // Predpokladané hodnoty napätia a prúdu
+    const voltage = 220; // v Voltách
+    const current = Number(currentInput.value) / 1000; // prevod z mA na A
+    console.log("calculated value: ", current);
+    // Výpočet odporu podľa Ohmovho zákona R = U/I
+    const resistance = voltage / Number(current);
+    console.log("R = " + resistance.toFixed(2) + " ohmov, I = " + currentInput.value + " mA");
+    if (resultParagraph !== null) {
+        resultParagraph.innerHTML =
+            "R = " +
+                resistance.toFixed(2) +
+                " ohmov, I = " +
+                currentInput.value +
+                " mA";
+    }
+    else {
+        console.error("Did not find element: ", resultName);
+    }
 }
-for (let celsius = 0; celsius <= 100; celsius++) {
-    const fahrenheit = (celsius * 9 / 5) + 32;
-    console.log(`${celsius} stupňov Celsius = ${fahrenheit.toFixed(2)} stupňov Fahrenheit`);
-}
+exports.calculateResistance = calculateResistance;
